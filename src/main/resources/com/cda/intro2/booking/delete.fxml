@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml" fx:controller="com.cda.intro2.controllers.BookingController">
+    <fx:include source="../menu.fxml" />
+    <VBox alignment="CENTER" spacing="20">
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        </padding>
+        <Label text="Supprimer des réservations"/>
+        <HBox spacing="20" alignment="CENTER">
+            <ListView fx:id="listView" onMouseClicked="#onClickListD"/>
+            <VBox spacing="20">
+                <VBox>
+                    <Label text="Index:"/>
+                    <Label fx:id="IDOutput"/>
+                </VBox>
+                <VBox>
+                    <Label text="Véhicule:"/>
+                    <ComboBox fx:id="vehicleComboBox" disable="true">
+                    </ComboBox>
+                </VBox>
+                <VBox>
+                    <Label text="Nom:"/>
+                    <Label fx:id="nameOutput"/>
+                </VBox>
+                <VBox>
+                    <Label text="Prénom:"/>
+                    <Label fx:id="firstnameOutput"/>
+                </VBox>
+                <VBox>
+                    <Label text="Date de début:"/>
+                    <Label fx:id="startOutput"/>
+                </VBox>
+                <VBox>
+                    <Label text="Date de fin:"/>
+                    <Label fx:id="endOutput"/>
+                </VBox>
+                <VBox>
+                    <Label text="Email:"/>
+                    <Label fx:id="emailOutput"/>
+                </VBox>
+                <VBox>
+                    <Label text="Téléphone:"/>
+                    <Label fx:id="phoneOutput"/>
+                </VBox>
+                <Button text="Confirmer" onAction="#onClickButtonDelete"/>
+            </VBox>
+        </HBox>
+    </VBox>
+</VBox>

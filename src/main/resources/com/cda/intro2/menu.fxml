@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.cda.intro2.controllers.MenuController">
+    <MenuBar>
+        <Menu text="Fichier">
+            <MenuItem text="Dashboard" onAction="#clickDashboard"/>
+            <MenuItem text="Nouvelle réservation ..."
+                      onAction="#clickPostReservation"/>
+            <SeparatorMenuItem/>
+            <MenuItem text="S'identifier" onAction="#clickLogin"/>
+            <SeparatorMenuItem/>
+            <MenuItem text="Fermer" onAction="#clickClose" />
+        </Menu>
+        <Menu text="Réservations">
+            <MenuItem text="Consulter les réservations" onAction="#clickGetReservations"/>
+            <SeparatorMenuItem/>
+            <MenuItem text="Ajouter une réservation"
+                      onAction="#clickPostReservation"/>
+            <MenuItem text="Modifier une réservation" onAction="#clickPutReservation"/>
+            <MenuItem text="Supprimer une réservation" onAction="#clickDeleteReservation" />
+        </Menu>
+        <Menu text="Véhicules">
+            <MenuItem text="Consulter les catégories" onAction="#clickGetCategories"/>
+            <SeparatorMenuItem/>
+            <MenuItem text="Ajouter une catégorie"
+                      onAction="#clickPostCategorie"/>
+            <MenuItem text="Modifier une catégorie" onAction="#clickPutCategorie"/>
+            <MenuItem text="Supprimer une catégorie" onAction="#clickDeleteCategorie" />
+        </Menu>
+        <Menu text="Aide">
+            <MenuItem text="À propos de ..." onAction="#clickAbout"/>
+        </Menu>
+    </MenuBar>
+    </VBox>

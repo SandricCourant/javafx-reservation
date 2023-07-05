@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml" fx:controller="com.cda.intro2.controllers.BookingController">
+    <fx:include source="../menu.fxml" />
+    <VBox alignment="CENTER" spacing="20">
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        </padding>
+        <Label text="Ajouter des réservations"/>
+        <HBox spacing="20" alignment="CENTER">
+            <ListView fx:id="listView"/>
+            <VBox spacing="20">
+                <VBox>
+                    <Label text="Véhicule:"/>
+                    <ComboBox fx:id="vehicleComboBox">
+                    </ComboBox>
+                </VBox>
+                <VBox>
+                    <Label text="Nom:"/>
+                    <TextField fx:id="nameInput"/>
+                </VBox>
+                <VBox>
+                    <Label text="Prénom:"/>
+                    <TextField fx:id="firstnameInput"/>
+                </VBox>
+                <VBox>
+                    <Label text="Date de début:"/>
+                    <TextField fx:id="startInput"/>
+                </VBox>
+                <VBox>
+                    <Label text="Date de fin:"/>
+                    <TextField fx:id="endInput"/>
+                </VBox>
+                <VBox>
+                    <Label text="Email:"/>
+                    <TextField fx:id="emailInput"/>
+                </VBox>
+                <VBox>
+                    <Label text="Téléphone:"/>
+                    <TextField fx:id="phoneInput"/>
+                </VBox>
+                <Button text="Ajouter" onAction="#onClickButtonAdd"/>
+            </VBox>
+        </HBox>
+    </VBox>
+</VBox>
