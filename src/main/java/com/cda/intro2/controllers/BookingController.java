@@ -133,7 +133,10 @@ public class BookingController {
     }
     @FXML
     private void onClickSelectBox() {
-        if(listView.getItems().size() > 0 && listView.getSelectionModel().getSelectedIndex() >= 0 && listView.getSelectionModel().getSelectedIndex() < listView.getItems().size()) vehicleComboBox.getSelectionModel().select(vehicleService.getVehiculeIndex(bookingService.getBooking(listView.getSelectionModel().getSelectedIndex()).getVehicle()));
+        int sizeView = listView.getItems().size();
+        int indexView = listView.getSelectionModel().getSelectedIndex();
+        
+        if(sizeView > 0 && indexView >= 0 && indexView < sizeView) vehicleComboBox.getSelectionModel().select(vehicleService.getVehiculeIndex(bookingService.getBooking(indexView).getVehicle()));
     }
 
 }
