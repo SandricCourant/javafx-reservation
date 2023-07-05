@@ -6,7 +6,7 @@ import com.cda.intro2.repositories.impl.BookingRepositoryImpl;
 import com.cda.intro2.repositories.impl.VehicleRepositoryImpl;
 import com.cda.intro2.services.BookingService;
 import com.cda.intro2.services.ObservableStorageService;
-import com.cda.intro2.services.VehiculeService;
+import com.cda.intro2.services.VehicleService;
 import com.cda.intro2.services.impl.BookingServiceImpl;
 import com.cda.intro2.services.impl.ObservableStorageServiceImpl;
 import com.cda.intro2.services.impl.VehicleServiceImpl;
@@ -32,19 +32,28 @@ public class AirfrenseApplication extends Application {
         scene.setRoot(screenByName.get(name));
     }
 
-    public static VehiculeService vehicleService;
-    public static BookingService bookingService;
-    public static ObservableStorageService observableStorageService;
-
+    public static Container container;
     @Override
     public void start(Stage stage) throws IOException {
+        //Init container
+        container = Container.getInstance();
         //Init Providers
         VehicleRepository vehicleRepository = new VehicleRepositoryImpl();
+        container.register(VehicleRepository.class,vehicleRepository);
+
         BookingRepository bookingRepository = new BookingRepositoryImpl();
+        container.register(BookingRepository.class,bookingRepository);
+
         //Init Services
-        vehicleService = new VehicleServiceImpl(vehicleRepository);
-        bookingService = new BookingServiceImpl(bookingRepository, vehicleService.getVehicle(0), vehicleService.getVehicle(1));
-        observableStorageService = new ObservableStorageServiceImpl();
+        VehicleService vehicleService = new VehicleServiceImpl();
+        container.register(VehicleService.class,vehicleService);
+
+        BookingService bookingService = new BookingServiceImpl();
+        container.register(BookingService.class,bookingService);
+
+        ObservableStorageService observableStorageService = new ObservableStorageServiceImpl();
+        container.register(ObservableStorageService.class,observableStorageService);
+
         //Get Stage
         AirfrenseApplication.stage = stage;
         //Put commons

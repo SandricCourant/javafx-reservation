@@ -2,7 +2,7 @@ package com.cda.intro2.services;
 
 import com.cda.intro2.domain.Vehicle;
 
-public interface VehiculeService {
+public interface VehicleService {
     Vehicle getVehicle(int index);
     Iterable<Vehicle> getVehicles();
     Vehicle addVehicle(String name, String license);

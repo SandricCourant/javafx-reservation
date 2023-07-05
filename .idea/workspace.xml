@@ -5,16 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a1ad88e-16ad-418d-9e54-b50872b344de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cda/intro2/services/ObservableStorageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cda/intro2/services/impl/ObservableStorageServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cda/intro2/Container.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cda/intro2/AirfrenseApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cda/intro2/AirfrenseApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cda/intro2/controllers/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cda/intro2/controllers/BookingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cda/intro2/controllers/VehicleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cda/intro2/controllers/VehicleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cda/intro2/services/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cda/intro2/services/BookingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cda/intro2/services/VehiculeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cda/intro2/services/VehiculeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cda/intro2/services/VehiculeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cda/intro2/services/VehicleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cda/intro2/services/impl/BookingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cda/intro2/services/impl/BookingServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cda/intro2/services/impl/ObservableStorageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cda/intro2/services/impl/ObservableStorageServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cda/intro2/services/impl/VehicleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cda/intro2/services/impl/VehicleServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

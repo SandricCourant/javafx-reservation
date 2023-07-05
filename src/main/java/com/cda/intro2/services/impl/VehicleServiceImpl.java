@@ -2,15 +2,16 @@ package com.cda.intro2.services.impl;
 
 import com.cda.intro2.domain.Vehicle;
 import com.cda.intro2.repositories.VehicleRepository;
-import com.cda.intro2.services.VehiculeService;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.cda.intro2.services.VehicleService;
 
-public class VehicleServiceImpl implements VehiculeService {
+import static com.cda.intro2.AirfrenseApplication.container;
+
+
+public class VehicleServiceImpl implements VehicleService {
     private final VehicleRepository vehicleRepository;
 
-    public VehicleServiceImpl(VehicleRepository vehicleRepository) {
-        this.vehicleRepository = vehicleRepository;
+    public VehicleServiceImpl() {
+        this.vehicleRepository = container.get(VehicleRepository.class);
     }
     @Override
     public Vehicle getVehicle(int index) {

@@ -1,14 +1,15 @@
 package com.cda.intro2.controllers;
 
 import com.cda.intro2.domain.Vehicle;
+import com.cda.intro2.services.ObservableStorageService;
+
+import com.cda.intro2.services.VehicleService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
-
-import static com.cda.intro2.AirfrenseApplication.observableStorageService;
-import static com.cda.intro2.AirfrenseApplication.vehicleService;
+import static com.cda.intro2.AirfrenseApplication.container;
 
 
 public class VehicleController {
@@ -26,8 +27,12 @@ public class VehicleController {
     @FXML
     private Label licenseOutput;
     private final String VEHICLE = "vehicle";
+    private ObservableStorageService observableStorageService;
+    private VehicleService vehicleService;
 
     public void initialize() {
+        observableStorageService = container.get(ObservableStorageService.class);
+        vehicleService = container.get(VehicleService.class);
         listView.setItems(observableStorageService.getList(VEHICLE));
     }
     @FXML

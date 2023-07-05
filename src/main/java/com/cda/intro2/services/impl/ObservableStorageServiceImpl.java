@@ -2,12 +2,13 @@ package com.cda.intro2.services.impl;
 
 import com.cda.intro2.domain.Booking;
 import com.cda.intro2.domain.Vehicle;
+import com.cda.intro2.services.BookingService;
 import com.cda.intro2.services.ObservableStorageService;
+import com.cda.intro2.services.VehicleService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import static com.cda.intro2.AirfrenseApplication.bookingService;
-import static com.cda.intro2.AirfrenseApplication.vehicleService;
+import static com.cda.intro2.AirfrenseApplication.container;
 
 public class ObservableStorageServiceImpl implements ObservableStorageService {
     private final ObservableList<String> observableVehicleList;
@@ -16,11 +17,11 @@ public class ObservableStorageServiceImpl implements ObservableStorageService {
         observableVehicleList = FXCollections.observableArrayList();
         observableBookingList = FXCollections.observableArrayList();
         for (Vehicle vehicle:
-        vehicleService.getVehicles()) {
+        container.get(VehicleService.class).getVehicles()) {
             observableVehicleList.add(vehicle.toString());
         }
         for (Booking booking:
-        bookingService.getBookings()) {
+        container.get(BookingService.class).getBookings()) {
             observableBookingList.add(booking.toString());
         }
     }

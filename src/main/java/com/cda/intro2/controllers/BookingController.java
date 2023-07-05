@@ -1,6 +1,9 @@
 package com.cda.intro2.controllers;
 
 import com.cda.intro2.domain.Booking;
+import com.cda.intro2.services.BookingService;
+import com.cda.intro2.services.ObservableStorageService;
+import com.cda.intro2.services.VehicleService;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -40,11 +43,16 @@ public class BookingController {
     private ComboBox<String> vehicleComboBox;
     @FXML
     private ListView<String> listView;
+    private BookingService bookingService;
+    private ObservableStorageService observableStorageService;
+    private VehicleService vehicleService;
     private final String BOOKING = "booking";
 
 
     public void initialize() {
-
+        bookingService = container.get(BookingService.class);
+        vehicleService = container.get(VehicleService.class);
+        observableStorageService = container.get(ObservableStorageService.class);
         //Set items de comboBox
         vehicleComboBox.setItems(observableStorageService.getList("vehicle"));
 
