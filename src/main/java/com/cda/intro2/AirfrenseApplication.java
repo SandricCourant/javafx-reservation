@@ -5,8 +5,10 @@ import com.cda.intro2.repositories.VehicleRepository;
 import com.cda.intro2.repositories.impl.BookingRepositoryImpl;
 import com.cda.intro2.repositories.impl.VehicleRepositoryImpl;
 import com.cda.intro2.services.BookingService;
+import com.cda.intro2.services.ObservableStorageService;
 import com.cda.intro2.services.VehiculeService;
 import com.cda.intro2.services.impl.BookingServiceImpl;
+import com.cda.intro2.services.impl.ObservableStorageServiceImpl;
 import com.cda.intro2.services.impl.VehicleServiceImpl;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -32,6 +34,7 @@ public class AirfrenseApplication extends Application {
 
     public static VehiculeService vehicleService;
     public static BookingService bookingService;
+    public static ObservableStorageService observableStorageService;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -41,6 +44,7 @@ public class AirfrenseApplication extends Application {
         //Init Services
         vehicleService = new VehicleServiceImpl(vehicleRepository);
         bookingService = new BookingServiceImpl(bookingRepository, vehicleService.getVehicle(0), vehicleService.getVehicle(1));
+        observableStorageService = new ObservableStorageServiceImpl();
         //Get Stage
         AirfrenseApplication.stage = stage;
         //Put commons

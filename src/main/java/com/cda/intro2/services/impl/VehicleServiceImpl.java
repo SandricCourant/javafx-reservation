@@ -7,42 +7,35 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class VehicleServiceImpl implements VehiculeService {
-
-    private final ObservableList<String> observableList = FXCollections.observableArrayList();
     private final VehicleRepository vehicleRepository;
 
     public VehicleServiceImpl(VehicleRepository vehicleRepository) {
         this.vehicleRepository = vehicleRepository;
-        for (Vehicle data:
-                vehicleRepository.getAll()) {
-            observableList.add(data.toString());
-        }
     }
     @Override
     public Vehicle getVehicle(int index) {
         return vehicleRepository.get(index);
     }
     @Override
-    public ObservableList<String> getVehicles() {
-        return observableList;
+    public Iterable<Vehicle> getVehicles() {
+        return vehicleRepository.getAll();
     }
     @Override
-    public void addVehicle(String name, String license) {
+    public Vehicle addVehicle(String name, String license) {
         Vehicle newVehicle = new Vehicle(name, license);
-        observableList.add(vehicleRepository.add(newVehicle).toString());
+        return  vehicleRepository.add(newVehicle);
     }
     @Override
-    public void modifyVehicle(int index, String name, String license){
+    public Vehicle modifyVehicle(int index, String name, String license){
         Vehicle newVehicle = new Vehicle(name, license);
-        observableList.set(index, vehicleRepository.set(index, newVehicle).toString());
+        return vehicleRepository.set(index, newVehicle);
     }
     @Override
     public void removeVehicle(int index) {
         vehicleRepository.remove(index);
-        observableList.remove(index);
     }
     @Override
-    public int getVehiculeIndex(Vehicle vehicle) {
+    public int getVehicleIndex(Vehicle vehicle) {
         return vehicleRepository.getIndex(vehicle);
     }
 }

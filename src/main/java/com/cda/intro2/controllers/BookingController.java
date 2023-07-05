@@ -6,11 +6,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 
-
-import static com.cda.intro2.AirfrenseApplication.bookingService;
-import static com.cda.intro2.AirfrenseApplication.vehicleService;
+import static com.cda.intro2.AirfrenseApplication.*;
 
 public class BookingController {
     @FXML
@@ -43,21 +40,22 @@ public class BookingController {
     private ComboBox<String> vehicleComboBox;
     @FXML
     private ListView<String> listView;
+    private final String BOOKING = "booking";
 
 
     public void initialize() {
 
         //Set items de comboBox
-        vehicleComboBox.setItems(vehicleService.getVehicles());
+        vehicleComboBox.setItems(observableStorageService.getList("vehicle"));
 
         //Set items de reservationList
-        listView.setItems(bookingService.getBookings());
+        listView.setItems(observableStorageService.getList(BOOKING));
     }
     @FXML
     private void onClickButtonAdd() {
             //Créer un nouveau véhicule avec les inputs
-            bookingService.addBooking(firstnameInput.getText(), nameInput.getText(), vehicleService.getVehicle(vehicleComboBox.getSelectionModel().getSelectedIndex()), startInput.getText(), endInput.getText(), emailInput.getText(), phoneInput.getText());
-
+            Booking newBooking = bookingService.addBooking(firstnameInput.getText(), nameInput.getText(), vehicleService.getVehicle(vehicleComboBox.getSelectionModel().getSelectedIndex()), startInput.getText(), endInput.getText(), emailInput.getText(), phoneInput.getText());
+            observableStorageService.add(BOOKING, newBooking.toString());
             //clear les inputs
             nameInput.clear();
             firstnameInput.clear();
@@ -82,7 +80,7 @@ public class BookingController {
         startInput.setText(bookingSelected.getStartAt());
         endInput.setText(bookingSelected.getEndAt());
         //set combobox
-        vehicleComboBox.getSelectionModel().select(vehicleService.getVehiculeIndex(bookingSelected.getVehicle()));
+        vehicleComboBox.getSelectionModel().select(vehicleService.getVehicleIndex(bookingSelected.getVehicle()));
     }
     @FXML
     private void onClickListD() {
@@ -100,7 +98,7 @@ public class BookingController {
             startOutput.setText(bookingSelected.getStartAt());
             endOutput.setText(bookingSelected.getEndAt());
             //set combobox
-            vehicleComboBox.getSelectionModel().select(vehicleService.getVehiculeIndex(bookingSelected.getVehicle()));
+            vehicleComboBox.getSelectionModel().select(vehicleService.getVehicleIndex(bookingSelected.getVehicle()));
         }
     }
     @FXML
@@ -108,9 +106,10 @@ public class BookingController {
         String indexStr = IDOutput.getText();
         //Si un élément de sélectionné, ID != ""
         if(!indexStr.equals("")){
+            int index = Integer.parseInt(indexStr);
             //Modifier dataList sur l'index avec un nouveau vehicule
-            bookingService.setBooking(Integer.parseInt(indexStr), firstnameInput.getText(), nameInput.getText(), vehicleService.getVehicle(vehicleComboBox.getSelectionModel().getSelectedIndex()), startInput.getText(), endInput.getText(), emailInput.getText(), phoneInput.getText());
-
+            Booking booking = bookingService.setBooking(index, firstnameInput.getText(), nameInput.getText(), vehicleService.getVehicle(vehicleComboBox.getSelectionModel().getSelectedIndex()), startInput.getText(), endInput.getText(), emailInput.getText(), phoneInput.getText());
+            observableStorageService.set(BOOKING, index, booking.toString());
         }
     }
     @FXML
@@ -118,8 +117,10 @@ public class BookingController {
         String indexStr = IDOutput.getText();
         //Si un élément de sélectionné, ID != ""
         if(!indexStr.equals("")){
-            //Supprimer de dataList le vehicule sur l'index
-            bookingService.removeBooking(Integer.parseInt(indexStr));
+            int index = Integer.parseInt(indexStr);
+            //Supprimer de dataList la reservation sur l'index
+            bookingService.removeBooking(index);
+            observableStorageService.remove(BOOKING, index);
         }
         //clear les outputs
         IDOutput.setText("");
@@ -136,7 +137,7 @@ public class BookingController {
         int sizeView = listView.getItems().size();
         int indexView = listView.getSelectionModel().getSelectedIndex();
         
-        if(sizeView > 0 && indexView >= 0 && indexView < sizeView) vehicleComboBox.getSelectionModel().select(vehicleService.getVehiculeIndex(bookingService.getBooking(indexView).getVehicle()));
+        if(indexView >= 0 && indexView < sizeView) vehicleComboBox.getSelectionModel().select(vehicleService.getVehicleIndex(bookingService.getBooking(indexView).getVehicle()));
     }
 
 }

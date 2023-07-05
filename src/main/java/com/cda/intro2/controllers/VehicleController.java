@@ -7,6 +7,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 
+import static com.cda.intro2.AirfrenseApplication.observableStorageService;
 import static com.cda.intro2.AirfrenseApplication.vehicleService;
 
 
@@ -24,15 +25,17 @@ public class VehicleController {
     private Label nameOutput;
     @FXML
     private Label licenseOutput;
+    private final String VEHICLE = "vehicle";
 
     public void initialize() {
-        listView.setItems(vehicleService.getVehicles());
+        listView.setItems(observableStorageService.getList(VEHICLE));
     }
     @FXML
     private void clickButtonAdd() {
         //Créer un nouveau véhicule avec les inputs
         if(!nameInput.getText().equals("") && !licenseInput.getText().equals("")){
-            vehicleService.addVehicle(nameInput.getText(), licenseInput.getText());
+            Vehicle newVehicle = vehicleService.addVehicle(nameInput.getText(), licenseInput.getText());
+            observableStorageService.add(VEHICLE, newVehicle.toString());
             //clear les inputs
             nameInput.clear();
             licenseInput.clear();
@@ -44,7 +47,9 @@ public class VehicleController {
         String indexStr = IDOutput.getText();
         //Si un élément de sélectionné, ID != ""
         if(!indexStr.equals("")){
-            vehicleService.modifyVehicle(Integer.parseInt(indexStr), nameInput.getText(), licenseInput.getText());
+            int index = Integer.parseInt(indexStr);
+            Vehicle vehicle = vehicleService.modifyVehicle(index, nameInput.getText(), licenseInput.getText());
+            observableStorageService.set(VEHICLE, index, vehicle.toString());
         }
     }
     @FXML
@@ -63,8 +68,10 @@ public class VehicleController {
         String indexStr = IDOutput.getText();
         //Si un élément de sélectionné, ID != ""
         if(!indexStr.equals("")){
+            int index = Integer.parseInt(indexStr);
             //Supprimer de dataList le vehicule sur l'index
-            vehicleService.removeVehicle(Integer.parseInt(indexStr));
+            vehicleService.removeVehicle(index);
+            observableStorageService.remove(VEHICLE, index);
         }
         //clear les outputs
         IDOutput.setText("");

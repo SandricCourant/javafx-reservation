@@ -9,7 +9,6 @@ import javafx.collections.ObservableList;
 
 public class BookingServiceImpl implements BookingService {
     private final BookingRepository bookingRepository;
-    private final ObservableList<String> observableList;
 
     public BookingServiceImpl(BookingRepository bookingRepository, Vehicle v1, Vehicle v2){
         this.bookingRepository = bookingRepository;
@@ -17,22 +16,16 @@ public class BookingServiceImpl implements BookingService {
         Booking vincent = new Booking("Vincent", "Time", v2, "15/04/2023", "16/04/2023", "vincent.time@gmail.com", "0707070707");
         bookingRepository.add(annie);
         bookingRepository.add(vincent);
-        observableList = FXCollections.observableArrayList();
-
-        for (Booking booking:
-                bookingRepository.getAll()) {
-            observableList.add(booking.toString());
-        }
     }
     @Override
-    public void addBooking(String firstname, String lastname, Vehicle v1, String start, String end, String email, String phone) {
+    public Booking addBooking(String firstname, String lastname, Vehicle v1, String start, String end, String email, String phone) {
         Booking annie = new Booking(firstname, lastname, v1, start, end, email, phone);
-        observableList.add(bookingRepository.add(annie).toString());
+        return bookingRepository.add(annie);
     }
 
     @Override
-    public ObservableList<String> getBookings() {
-        return observableList;
+    public Iterable<Booking> getBookings() {
+        return bookingRepository.getAll();
     }
 
     @Override
@@ -41,14 +34,13 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
-    public void setBooking(int index, String firstname, String lastname, Vehicle v1, String start, String end, String email, String phone) {
+    public Booking setBooking(int index, String firstname, String lastname, Vehicle v1, String start, String end, String email, String phone) {
         Booking annie = new Booking(firstname, lastname, v1, start, end, email, phone);
-        observableList.set(index,  bookingRepository.set(index, annie).toString());
+        return bookingRepository.set(index, annie);
     }
 
     @Override
     public void removeBooking(int index) {
         bookingRepository.remove(index);
-        observableList.remove(index);
     }
 }
