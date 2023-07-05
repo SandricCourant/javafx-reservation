@@ -6,7 +6,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-
+import javafx.scene.input.MouseEvent;
 
 
 import static com.cda.intro2.AirfrenseApplication.bookingService;
@@ -130,5 +130,9 @@ public class BookingController {
         startOutput.setText("");
         endOutput.setText("");
         vehicleComboBox.getSelectionModel().clearSelection();
+    }
+    @FXML
+    private void onClickSelectBox() {
+        if(listView.getItems().size() > 0) vehicleComboBox.getSelectionModel().select(vehicleService.getVehiculeIndex(bookingService.getBooking(listView.getSelectionModel().getSelectedIndex()).getVehicle()));
     }
 }

@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a1ad88e-16ad-418d-9e54-b50872b344de" name="Changes" comment="" />
+    <list default="true" id="1a1ad88e-16ad-418d-9e54-b50872b344de" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cda/intro2/controllers/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cda/intro2/controllers/BookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/cda/intro2/booking/list.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/cda/intro2/booking/list.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,21 +28,29 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/com/cda/intro2/VehicleController.java" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2S673WdpHludTF3Xiz1myFhesOJ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_directory_selection": "D:/StockageDisqueC/CDA/javafx/intro2/src/main/java/com/cda/intro2",
-    "last_opened_file_path": "D:/StockageDisqueC/CDA/javafx/intro2/src/main/resources/com/cda/intro2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;D:/StockageDisqueC/CDA/javafx/intro2/src/main/java/com/cda/intro2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/StockageDisqueC/CDA/javafx/intro2/src/main/resources/com/cda/intro2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\StockageDisqueC\CDA\javafx\intro2\src\main\resources\com\cda\intro2" />

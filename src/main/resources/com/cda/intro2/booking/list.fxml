@@ -19,6 +19,6 @@
         </VBox>
 
         <Label text="Listes des réservations"/>
-        <ListView fx:id="listView"/>
+        <ListView fx:id="listView" onMouseClicked="#onClickSelectBox"/>
     </VBox>
 </VBox>

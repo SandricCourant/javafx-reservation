@@ -13,7 +13,7 @@
         </padding>
         <Label text="Ajouter des réservations"/>
         <HBox spacing="20" alignment="CENTER">
-            <ListView fx:id="listView"/>
+            <ListView fx:id="listView" onMouseClicked="#onClickSelectBox"/>
             <VBox spacing="20">
                 <VBox>
                     <Label text="Véhicule:"/>
