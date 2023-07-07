@@ -1,5 +1,6 @@
 package com.cda.intro2.controllers;
 
+import com.cda.intro2.Container;
 import com.cda.intro2.domain.Booking;
 import com.cda.intro2.services.BookingService;
 import com.cda.intro2.services.ObservableStorageService;
@@ -50,6 +51,7 @@ public class BookingController {
 
 
     public void initialize() {
+        Container container = Container.getInstance();
         bookingService = container.get(BookingService.class);
         vehicleService = container.get(VehicleService.class);
         observableStorageService = container.get(ObservableStorageService.class);

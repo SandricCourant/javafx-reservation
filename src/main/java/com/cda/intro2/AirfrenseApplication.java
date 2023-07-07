@@ -31,12 +31,10 @@ public class AirfrenseApplication extends Application {
     public static void navigateTo(String name) {
         scene.setRoot(screenByName.get(name));
     }
-
-    public static Container container;
     @Override
     public void start(Stage stage) throws IOException {
         //Init container
-        container = Container.getInstance();
+        Container container = Container.getInstance();
         //Init Providers
         VehicleRepository vehicleRepository = new VehicleRepositoryImpl();
         container.register(VehicleRepository.class,vehicleRepository);

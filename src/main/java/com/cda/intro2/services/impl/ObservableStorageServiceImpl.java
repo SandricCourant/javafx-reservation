@@ -1,5 +1,6 @@
 package com.cda.intro2.services.impl;
 
+import com.cda.intro2.Container;
 import com.cda.intro2.domain.Booking;
 import com.cda.intro2.domain.Vehicle;
 import com.cda.intro2.services.BookingService;
@@ -8,12 +9,12 @@ import com.cda.intro2.services.VehicleService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import static com.cda.intro2.AirfrenseApplication.container;
 
 public class ObservableStorageServiceImpl implements ObservableStorageService {
     private final ObservableList<String> observableVehicleList;
     private final ObservableList<String> observableBookingList;
     public ObservableStorageServiceImpl(){
+        Container container = Container.getInstance();
         observableVehicleList = FXCollections.observableArrayList();
         observableBookingList = FXCollections.observableArrayList();
         for (Vehicle vehicle:

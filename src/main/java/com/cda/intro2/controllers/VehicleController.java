@@ -1,5 +1,6 @@
 package com.cda.intro2.controllers;
 
+import com.cda.intro2.Container;
 import com.cda.intro2.domain.Vehicle;
 import com.cda.intro2.services.ObservableStorageService;
 
@@ -8,8 +9,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-
-import static com.cda.intro2.AirfrenseApplication.container;
 
 
 public class VehicleController {
@@ -31,6 +30,7 @@ public class VehicleController {
     private VehicleService vehicleService;
 
     public void initialize() {
+        Container container = Container.getInstance();
         observableStorageService = container.get(ObservableStorageService.class);
         vehicleService = container.get(VehicleService.class);
         listView.setItems(observableStorageService.getList(VEHICLE));

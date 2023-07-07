@@ -1,16 +1,18 @@
 package com.cda.intro2.services.impl;
 
+import com.cda.intro2.Container;
 import com.cda.intro2.domain.Vehicle;
 import com.cda.intro2.repositories.VehicleRepository;
 import com.cda.intro2.services.VehicleService;
 
-import static com.cda.intro2.AirfrenseApplication.container;
+
 
 
 public class VehicleServiceImpl implements VehicleService {
     private final VehicleRepository vehicleRepository;
 
     public VehicleServiceImpl() {
+        Container container = Container.getInstance();
         this.vehicleRepository = container.get(VehicleRepository.class);
     }
     @Override

@@ -1,17 +1,18 @@
 package com.cda.intro2.services.impl;
 
+import com.cda.intro2.Container;
 import com.cda.intro2.domain.Booking;
 import com.cda.intro2.domain.Vehicle;
 import com.cda.intro2.repositories.BookingRepository;
 import com.cda.intro2.services.BookingService;
 import com.cda.intro2.services.VehicleService;
 
-import static com.cda.intro2.AirfrenseApplication.container;
 
 public class BookingServiceImpl implements BookingService {
     private final BookingRepository bookingRepository;
 
     public BookingServiceImpl(){
+        Container container = Container.getInstance();
         this.bookingRepository = container.get(BookingRepository.class);
         Booking annie = new Booking("Annie", "Versaire", container.get(VehicleService.class).getVehicle(0), "12/03/2023", "14/03/2023", "annie.versaire@gmail.com", "0606060606");
         Booking vincent = new Booking("Vincent", "Time", container.get(VehicleService.class).getVehicle(1), "15/04/2023", "16/04/2023", "vincent.time@gmail.com", "0707070707");
