@@ -1,4 +1,4 @@
-package com.cda.intro2;
+package com.cda.intro2.client;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
